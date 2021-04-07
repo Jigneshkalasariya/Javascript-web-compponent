@@ -1,0 +1,23 @@
+<h1>Stateless</h1>
+<x-tabs (tabclosed)="onTabClosed($event)">
+  <x-tab title="Tab 01" #tab>
+    <div>
+      <h3>Tab 01 Content</h3>
+    </div>
+  </x-tab>
+  <x-tab #tab title="Tab 02">
+    <div>
+      <h3>Tab 02 Content</h3>
+    </div>
+  </x-tab>
+</x-tabs>
+
+<h1>Stateful</h1>
+<x-tabs (tabclosed)="onStatefulTabClosed($event)">
+  <x-tab *ngFor="let tab of tabObjects; let i = index" #statefulTab
+         [attr.data-index]="i" [title]="tab.title">
+    <div>
+      <h3>{{ tab.pane.title }}</h3>
+    </div>
+  </x-tab>
+</x-tabs>
